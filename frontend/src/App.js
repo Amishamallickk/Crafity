@@ -4,9 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
-import { AdminDashboardPage } from "./Routes/AdminRoutes.js";
-import ProtectedAdminRoute from "./Routes/ProtectedAdminRoute.js";
-import { AboutUsPage, ActivationPage, BuyerPolicyPage, ContactUsPage, FAQPage, HomePage, LoginPage, PrivacyPolicyPage, ProductsPage, SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage } from "./Routes/Routes.js";
+import { AboutUsPage, ActivationPage, BuyerPolicyPage, ContactUsPage, FAQPage, HomePage, LoginPage, OrderSuccessPage, PrivacyPolicyPage, ProductsPage, SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage } from "./Routes/Routes.js";
 
 
 
@@ -22,13 +20,13 @@ const App = () => {
         <Route path="/FAQs" element={<FAQPage />} />
         <Route path="/TermsandConditions" element={<TermsandConditionPage />} />
         <Route path="/ContactUs" element={<ContactUsPage />} />
+        <Route path="/order/success" element={<OrderSuccessPage />} />
         <Route path="/shop-create" element={<ShopCreatePage />} />
         <Route path="/shop-login" element={<ShopLoginPage />} />
         <Route path="/PrivacyPolicy" element={<PrivacyPolicyPage />} />
         <Route path="/AboutUs" element={<AboutUsPage />} />
         <Route path="/SellerPolicy" element={<SellerPolicyPage />} />
         <Route path="/BuyerPolicy" element={<BuyerPolicyPage />} />
-        <Route path="/admin/dashboard" element={ <ProtectedAdminRoute> <AdminDashboardPage /> </ProtectedAdminRoute> }/>
       </Routes>
       <ToastContainer
         position="bottom-center"

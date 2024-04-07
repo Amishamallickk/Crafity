@@ -7,6 +7,7 @@ import HomePage from "../Pages/HomePage";
 import LoginPage from "../Pages/LoginPage";
 import PrivacyPolicyPage from "../Pages/PrivacyPolicyPage.jsx";
 import ProductsPage from "../Pages/ProductsPage";
+import OrderSuccessPage from "../Pages/OrderSuccessPage.jsx";
 import SellerPolicyPage from "../Pages/SellerPolicyPage.jsx";
 import ShopCreatePage from "../Pages/ShopCreatePage.jsx";
 import ShopLoginPage from "../Pages/ShopLoginPage.jsx";
@@ -15,6 +16,6 @@ import TermsandConditionPage from "../Pages/TermsandConditionPage";
 
 export {
     AboutUsPage, ActivationPage, BuyerPolicyPage, ContactUsPage, FAQPage, HomePage,
-    LoginPage, PrivacyPolicyPage, ProductsPage, SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage
+    LoginPage, PrivacyPolicyPage, ProductsPage, OrderSuccessPage, SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage
 };
 
