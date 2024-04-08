@@ -14,9 +14,9 @@ import ShopCreatePage from "../Pages/ShopCreatePage";
 import ShopLoginPage from "../Pages/ShopLoginPage";
 import SignUpPage from "../Pages/SignUpPage";
 import TermsandConditionPage from "../Pages/TermsandConditionPage";
+import ProfilePage from "../Pages/ProfilePage";
 
 export {
     AboutUsPage, ActivationPage, BuyerPolicyPage, ContactUsPage, FAQPage, HomePage,
-    LoginPage, PrivacyPolicyPage, ProductsPage, ProductDetailsPage,OrderSuccessPage, SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage
-};
-
+    LoginPage, PrivacyPolicyPage, ProductsPage, ProductDetailsPage,OrderSuccessPage, SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage,ProfilePage
+}

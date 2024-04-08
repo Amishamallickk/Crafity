@@ -7,7 +7,7 @@ const styles = {
     price:"font-[500] text-[15px] text-[#d55b45] pl-3 mt-[-4px] line-through py-0.5",
     shop_name:"pt-2 text-[15px] text-rose-500 pb-3 flex justify-center",
     active_indicator:"absolute bottom-[-27%] left-0 h-[3px] w-full bg-[crimson]",
-    button: 'w-[140px] bg-[#ffcdd2] h-[36px] my-5 ml-2 flex items-center justify-center rounded-md cursor-pointer',
+    button: 'w-[140px] bg-[#ffcdd2] h-[36px] my-5  flex items-center justify-center rounded-md cursor-pointer',
     loginbutton: 'w-[100px] bg-[#ffcdd2] h-[36px] my-5 flex items-center justify-center rounded-md cursor-pointer',
     cart_button: "px-[20px] h-[38px] rounded-[20px] bg-[#f63b60] flex items-center justify-center cursor-pointer",
     cart_button_text:"text-[#fff] text-[16px] font-[600]",

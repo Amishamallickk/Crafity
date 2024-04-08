@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../Components/Layout/Footer";
+import Heading from "../Components/Layout/Heading";
 import Header from "../Components/Layout/Headers";
 import Lottie from "react-lottie";
 import animationData from "../Assests/animations/107043-success.json";
@@ -7,6 +8,7 @@ import animationData from "../Assests/animations/107043-success.json";
 const OrderSuccessPage = () => {
   return (
     <div>
+        <Heading />
       <Header />
       <Success />
       <Footer />

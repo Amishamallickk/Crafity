@@ -5,8 +5,9 @@ const jwt = require("jsonwebtoken");
 const userSchema = new mongoose.Schema({
   name:{
     type: String,
-    required: [true, "Please enter your name!"],
+    //required: [true, "Please enter your name!"],
   },
+  shop_name:{type: String},
   email:{
     type: String,
     required: [true, "Please enter your email!"],
@@ -44,16 +45,16 @@ const userSchema = new mongoose.Schema({
   ],
   role:{
     type: String,
-    default: "user",
+    default: "customer",  //['customer','seller']
   },
   avatar:{
     public_id: {
       type: String,
-      required: true,
+      // required: true,
     },
     url: {
       type: String,
-      required: true,
+      // required: true,
     },
  },
  createdAt:{
@@ -76,6 +77,7 @@ userSchema.pre("save", async function (next){
 
 // jwt token
 userSchema.methods.getJwtToken = function () {
+  // console.log(`getJwtToken `, process.env);
   return jwt.sign({ id: this._id}, process.env.JWT_SECRET_KEY,{
     expiresIn: process.env.JWT_EXPIRES,
   });

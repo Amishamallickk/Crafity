@@ -18,7 +18,14 @@ const sendMail = async (options) => {
         text: options.message,
     };
 
-    await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions)
+    .then(res=>{
+        console.log(res);
+        return {"status":"success","data":"mail sent successfully"}
+    }).catch((e)=>{
+        console.log(e);
+        return {"status":"error","data":"Failed to send mail. Please check with you Backend Team."}
+    });
 };
 
 module.exports = sendMail;

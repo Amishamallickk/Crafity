@@ -4,17 +4,28 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
+// import ProtectedRoute from "./Routes/ProtectedRoute.js";
 import {
   AboutUsPage, ActivationPage, BuyerPolicyPage, ContactUsPage, FAQPage, HomePage, LoginPage, OrderSuccessPage, PrivacyPolicyPage,
   ProductDetailsPage,
-  ProductsPage,
+  ProductsPage, ProfilePage,
   SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage
 } from "./Routes/Routes.js";
-
+// import { loadUser } from "./redux/actions/user";
+// import { useSelector } from "react-redux";
+// import Store from './redux/store.js';
 
 
 const App = () => {
+  // const {loading, isAutenticated } = useSelector((state) => state.user);
+
+  // useEffect(() => {
+  //   Store.dispatch(loadUser());
+  // })
+
   return (
+    // <>
+    // {loading ? null : (
     <BrowserRouter>
       <Routes>
         <Route path='/login' element={<LoginPage />} />
@@ -27,6 +38,11 @@ const App = () => {
         <Route path="/TermsandConditions" element={<TermsandConditionPage />} />
         <Route path="/ContactUs" element={<ContactUsPage />} />
         <Route path="/order/success" element={<OrderSuccessPage />} />
+        <Route path="/profile" element={<ProfilePage />
+          // <ProtectedRoute >
+          //     <ProfilePage />
+          //   </ProtectedRoute>
+          }/>
         <Route path="/shop-create" element={<ShopCreatePage />} />
         <Route path="/shop-login" element={<ShopLoginPage />} />
         <Route path="/PrivacyPolicy" element={<PrivacyPolicyPage />} />
@@ -47,6 +63,9 @@ const App = () => {
         theme="light"
       />
     </BrowserRouter>
+    // )}
+    // </>
+        
   )
 }
 

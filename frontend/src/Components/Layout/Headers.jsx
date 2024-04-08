@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { productData } from "../../Static/data";
 import styles from "../../Styles/styles";
+import Cart from "../cart/Cart";
 
-import { CgProfile } from "react-icons/cg";
-
-const Headers = () => {
+const Headers = ({activeHeading}) => {
   const [searchTerm, setsearchTerm] = useState("");
   const [searchData, setsearchData] = useState(null);
+  const [openCart, setOpenCart] = useState(false);
 
 
   const handleSearchChange = (e) => {
@@ -84,7 +85,7 @@ const Headers = () => {
           </div>
 
           {/* Sell with us button */}
-          <div className="py-4">
+          <div className="py-4 ml-2">
             <div className={`${styles.button}`}>
               <Link to="/shop-login">
                 <h1 className="text-[#ee534f] flex items-center font-bold">
@@ -95,24 +96,37 @@ const Headers = () => {
           </div>
           <div className="ml-5 mb-2 flex justify-end">
           <div className={`${styles.noramlFlex}`}>
-            <div className="relative cursor-pointer ">
+            <div className="relative cursor-pointer " onClick={() => setOpenCart(true)}>
               <AiOutlineShoppingCart size={30} className="text-rose-600" />
               <span class="absolute right-0 top-0 rounded-full bg-[#ffeaea] w-3.5 h-3.5 top right p-0 m-0 text-rose-700 font-mono text-[11px]  leading-tight text-center">
-                0
+                3
               </span>
             </div>
           </div>
           <div className={`${styles.noramlFlex}`}>
             <div className="relative cursor-pointer ">
-              <Link to="/login">
+              {/* <Link to="/login"> */}
                 <CgProfile size={28} className="text-rose-600 mx-5" />
-              </Link>
+              {/* </Link> */}
 
             </div>
           </div>
+
+          {/* shopping cart popup */}
+          {
+            openCart ? (
+              <Cart setOpenCart={setOpenCart}/>
+            ) : null
+          }
         </div>
         </div>
       </div>
+
+      {/* mobile header */}
+      {/* <div className="w-full h-[70px] fixed bg-[#ff] z-50 top-0 left-0 shadow-sm">
+        <div className="w-full flex items-center justify-between">
+        </div>
+      </div> */}
     </>
   );
 };

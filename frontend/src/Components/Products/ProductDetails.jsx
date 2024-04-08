@@ -231,7 +231,7 @@ const ProductDetailsInfo = ({data}) => {
             </div>
           </div>
         </div>
-      )}
+            )}
 
             
         </div>

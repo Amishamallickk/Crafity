@@ -5,6 +5,7 @@ import styles from "../../../Styles/styles";
 
 const Categories = () => {
   const navigate = useNavigate();
+
   return (
     <>
       <div

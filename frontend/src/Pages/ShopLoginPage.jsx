@@ -1,5 +1,5 @@
 import React from 'react';
-import ShopLogin from "../Components/Shop/ShopLogin.jsx";
+import ShopLogin from "../Components/Shop/ShopLogin";
 
 const ShopLoginPage = () => {
   return (

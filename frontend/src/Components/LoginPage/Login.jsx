@@ -22,14 +22,18 @@ const Login = () => {
           email,
           password,
         },
+        // { withCredentials: true }
       )
       .then((res) => {
         toast.success("Login Success!");
         navigate("/");
-        window.location.reload(true);
+        //window.location.reload(true);
+        // alert('Login Success...')
       })
       .catch((err) => {
         console.log(err);
+        // alert(err.message)
+        toast.error(err.response.data.message);
       });
   };
 
