@@ -5,6 +5,7 @@ import Headers from '../Components/Layout/Headers';
 import Heading from '../Components/Layout/Heading';
 import ProductDetails from "../Components/Products/ProductDetails";
 import { productData } from '../Static/data';
+import SuggestedProduct from "../Components/Products/SuggestedProduct.jsx";
 
 const ProductDetailsPage = () => {
     const {name} = useParams();
@@ -21,6 +22,9 @@ const ProductDetailsPage = () => {
         <Heading />
         <Headers />
         <ProductDetails data={data} />
+        {
+          data && <SuggestedProduct data={data} />
+        }
         <Footer />
     </div>
   )
