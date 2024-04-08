@@ -4,7 +4,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
-import { AboutUsPage, ActivationPage, BuyerPolicyPage, ContactUsPage, FAQPage, HomePage, LoginPage, OrderSuccessPage, PrivacyPolicyPage, ProductsPage, SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage } from "./Routes/Routes.js";
+import {
+  AboutUsPage, ActivationPage, BuyerPolicyPage, ContactUsPage, FAQPage, HomePage, LoginPage, OrderSuccessPage, PrivacyPolicyPage,
+  ProductDetailsPage,
+  ProductsPage,
+  SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage
+} from "./Routes/Routes.js";
 
 
 
@@ -17,6 +22,7 @@ const App = () => {
         <Route path='/activation/:activation_token' element={<ActivationPage />} />
         <Route path='/' element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/product/:name" element={<ProductDetailsPage />} />
         <Route path="/FAQs" element={<FAQPage />} />
         <Route path="/TermsandConditions" element={<TermsandConditionPage />} />
         <Route path="/ContactUs" element={<ContactUsPage />} />
