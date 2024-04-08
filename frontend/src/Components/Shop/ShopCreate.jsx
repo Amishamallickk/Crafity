@@ -9,10 +9,11 @@ import { server } from "../../server";
 
 const ShopCreate = () => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState();
+  const [shop_name, setName] = useState("");
+  // const [role]
+  const [mobile, setMobile] = useState();
   const [address, setAddress] = useState("");
-  const [zipCode, setZipCode] = useState();
+  const [zipcode, setZipcode] = useState();
   const [avatar, setAvatar] = useState();
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
@@ -21,14 +22,15 @@ const ShopCreate = () => {
     e.preventDefault();
 
     axios
-      .post(`${server}/shop/create-shop`, {
-        name,
+      .post(`${server}/seller/create-seller`, {
+        role:"seller",
+        shop_name,
         email,
         password,
         avatar,
-        zipCode,
+        zipcode,
         address,
-        phoneNumber,
+        mobile,
       })
       .then((res) => {
         toast.success(res.data.message);
@@ -36,9 +38,9 @@ const ShopCreate = () => {
         setEmail("");
         setPassword("");
         setAvatar();
-        setZipCode();
+        setZipcode();
         setAddress("");
-        setPhoneNumber();
+        setMobile();
       })
       .catch((error) => {
         toast.error(error.response.data.message);
@@ -79,7 +81,7 @@ const ShopCreate = () => {
                   type="name"
                   name="name"
                   required
-                  value={name}
+                  value={shop_name}
                   onChange={(e) => setName(e.target.value)}
                   className="appearance-none block w-full px-3 py-2 border border-rose-100 rounded-md shadow-sm placeholder-rose-100 focus:outline-none focus:ring-pink-600 focus:border-pink-600 sm:text-sm"
                 />
@@ -98,8 +100,8 @@ const ShopCreate = () => {
                   type="number"
                   name="phone-number"
                   required
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
                   className="appearance-none block w-full px-3 py-2 border border-rose-100 rounded-md shadow-sm placeholder-rose-100 focus:outline-none focus:ring-pink-600 focus:border-pink-600 sm:text-sm"
                 />
               </div>
@@ -156,8 +158,8 @@ const ShopCreate = () => {
                   type="number"
                   name="zipcode"
                   required
-                  value={zipCode}
-                  onChange={(e) => setZipCode(e.target.value)}
+                  value={zipcode}
+                  onChange={(e) => setZipcode(e.target.value)}
                   className="appearance-none block w-full px-3 py-2 border border-rose-100 rounded-md shadow-sm placeholder-rose-100 focus:outline-none focus:ring-pink-600 focus:border-pink-600 sm:text-sm"
                 />
               </div>

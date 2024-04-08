@@ -17,17 +17,17 @@ const ShopLogin = () => {
 
     await axios
       .post(
-        `${server}/shop/login-shop`,
+        `${server}/seller/login-user`,
         {
           email,
           password,
         },
-        { withCredentials: true }
-      )
+        // { withCredentials: true }
+      )
       .then((res) => {
         toast.success("Login Success!");
         navigate("/dashboard");
-        window.location.reload(true); 
+        // window.location.reload(true);
       })
       .catch((err) => {
         toast.error(err.response.data.message);
