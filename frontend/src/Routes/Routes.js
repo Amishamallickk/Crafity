@@ -9,6 +9,7 @@ import PrivacyPolicyPage from "../Pages/PrivacyPolicyPage";
 import ProductsPage from "../Pages/ProductsPage";
 import ProductDetailsPage from "../Pages/ProductDetailsPage";
 import OrderSuccessPage from "../Pages/OrderSuccessPage";
+import CheckoutPage from "../Pages/CheckoutPage.jsx";
 import SellerPolicyPage from "../Pages/SellerPolicyPage";
 import ShopCreatePage from "../Pages/ShopCreatePage";
 import ShopLoginPage from "../Pages/ShopLoginPage";
@@ -18,5 +19,5 @@ import ProfilePage from "../Pages/ProfilePage";
 
 export {
     AboutUsPage, ActivationPage, BuyerPolicyPage, ContactUsPage, FAQPage, HomePage,
-    LoginPage, PrivacyPolicyPage, ProductsPage, ProductDetailsPage,OrderSuccessPage, SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage,ProfilePage
+    LoginPage, PrivacyPolicyPage, ProductsPage, ProductDetailsPage,OrderSuccessPage,CheckoutPage, SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage,ProfilePage
 }

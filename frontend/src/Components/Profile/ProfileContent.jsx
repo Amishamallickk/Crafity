@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-// import { useSelector } from "react-redux";
-// import { backend_url } from '../../server';
+import { useSelector } from "react-redux";
+import { backend_url } from '../../server';
 import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import { AiOutlineArrowRight, AiOutlineCamera, AiOutlineDelete } from 'react-icons/ai';
@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom';
 import styles from '../../Styles/styles';
 
 const ProfileContent = ({active}) => {
-    // const {user} = useSelector((state) => state.user)
-    const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [mobile,setMobile] = useState();
+    const {user} = useSelector((state) => state.user)
+    const [name, setName] = useState(user && user.name);
+  const [email, setEmail] = useState(user && user.email);
+  const [mobile,setMobile] = useState(user && user.mobile);
   const [zipcode,setZipcode] = useState();
   const [address1,setAddress1] = useState();
   const [address2,setAddress2] = useState();
@@ -30,7 +30,7 @@ const ProfileContent = ({active}) => {
                 <>
                 <div className="flex justify-center w-full">
                     <div className="relative">
-                    {/* <img src={`${backend_url}${user?.avatar}`} className="w-[150px] h-[150px] rounded-full object-cover border-[3px] border-[#3ad132]" alt=""/> */}
+                    <img src={`${backend_url}${user?.avatar}`} className="w-[150px] h-[150px] rounded-full object-cover border-[3px] border-[#672a2a]" alt=""/>
                     <div className="w-[30px] h-[30px] bg-[#E3E9EE] rounded-full flex items-center justify-center cursor-pointer absolute bottom-[5px] right-[5px]">
                         <AiOutlineCamera />
                     </div>

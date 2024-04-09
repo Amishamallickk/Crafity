@@ -5,12 +5,14 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 // import ProtectedRoute from "./Routes/ProtectedRoute.js";
+// import SellerProtectedRoutes from "./Routes/SellerProtectedRoutes"
 import {
   AboutUsPage, ActivationPage, BuyerPolicyPage, ContactUsPage, FAQPage, HomePage, LoginPage, OrderSuccessPage, PrivacyPolicyPage,
-  ProductDetailsPage,
+  ProductDetailsPage, CheckoutPage ,
   ProductsPage, ProfilePage,
   SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage
 } from "./Routes/Routes.js";
+import { ShopDashboardPage, ShopHomePage } from "./Routes/ShopRoutes.js";
 // import { loadUser } from "./redux/actions/user";
 // import { useSelector } from "react-redux";
 // import Store from './redux/store.js';
@@ -24,8 +26,6 @@ const App = () => {
   // })
 
   return (
-    // <>
-    // {loading ? null : (
     <BrowserRouter>
       <Routes>
         <Route path='/login' element={<LoginPage />} />
@@ -37,18 +37,34 @@ const App = () => {
         <Route path="/FAQs" element={<FAQPage />} />
         <Route path="/TermsandConditions" element={<TermsandConditionPage />} />
         <Route path="/ContactUs" element={<ContactUsPage />} />
+        <Route
+          path="/checkout"
+          element={
+            // <ProtectedRoute>
+              <CheckoutPage />
+            // </ProtectedRoute>
+          }
+        />
         <Route path="/order/success" element={<OrderSuccessPage />} />
-        <Route path="/profile" element={<ProfilePage />
-          // <ProtectedRoute >
-          //     <ProfilePage />
-          //   </ProtectedRoute>
-          }/>
-        <Route path="/shop-create" element={<ShopCreatePage />} />
-        <Route path="/shop-login" element={<ShopLoginPage />} />
+        <Route path="/profile" element={ <ProfilePage />} />
+          {/* // <ProtectedRoute >
+          // <ProfilePage />
+          // </ProtectedRoute>
+          // }/> */}
         <Route path="/PrivacyPolicy" element={<PrivacyPolicyPage />} />
         <Route path="/AboutUs" element={<AboutUsPage />} />
         <Route path="/SellerPolicy" element={<SellerPolicyPage />} />
         <Route path="/BuyerPolicy" element={<BuyerPolicyPage />} />
+
+          {/* Shop Routes */}
+        <Route path="/shop-create" element={<ShopCreatePage />} />
+        <Route path="/shop-login" element={<ShopLoginPage />} />
+        <Route path="/shop/:id" element={<ShopHomePage />} />
+        <Route path="/dashboard" element={<ShopDashboardPage />} />
+        {/* <Route path="/shop/:id" element={<SellerProtectedRoutes><ShopHomePage /></SellerProtectedRoutes>} />
+        <Route path="/dashboard" element={<SellerProtectedRoutes><ShopDashboardPage /></SellerProtectedRoutes>} /> */}
+
+
       </Routes>
       <ToastContainer
         position="bottom-center"
@@ -63,9 +79,7 @@ const App = () => {
         theme="light"
       />
     </BrowserRouter>
-    // )}
-    // </>
-        
+    
   )
 }
 

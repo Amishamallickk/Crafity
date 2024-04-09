@@ -237,7 +237,7 @@ export const footerforyouLinks = [
     },
     {
         name: "My Account",
-        link: "/My Account"
+        link: "/profile"
     },
     {
         name: "Track Order",

@@ -46,27 +46,26 @@ const ProfileSideBar = ({setActive,active}) => {
 
     <div className="flex items-center cursor-pointer w-full mb-8" onClick={() => setActive(5)}>
         <MdOutlineTrackChanges size={20} color={active === 5 ? "red" : ""} />
-        <span  className={`pl-3 ${active === 5 ? "text-[red]" : ""}800px:block hidden`}>Track Order</span>
+        <span  className={`pl-3 ${active === 5 ? "text-[red]" : ""} 800px:block hidden`}>Track Order</span>
     </div>
 
     
     <div className="flex items-center cursor-pointer w-full mb-8" onClick={() => setActive(6)}>
         <AiOutlineCreditCard size={20} color={active === 6 ? "red" : ""} />
-        <span  className={`pl-3 ${active === 6 ? "text-[red]" : ""}800px:block hidden`}>Payment Methods</span>
+        <span  className={`pl-3 ${active === 6 ? "text-[red]" : ""} 800px:block hidden`}>Payment Methods</span>
     </div>
-
     
     <div className="flex items-center cursor-pointer w-full mb-8" onClick={() => setActive(7)}>
         <TbAddressBook size={20} color={active === 7 ? "red" : ""} />
-        <span  className={`pl-3 ${active === 7 ? "text-[red]" : ""}800px:block hidden`}>Address</span>
+        <span  className={`pl-3 ${active === 7 ? "text-[red]" : ""} 800px:block hidden`}>Address</span>
     </div>
 
-    <div className="flex items-center cursor-pointer w-full mb-8" onClick={() => setActive(8)}>
+    
     {/* <div className="flex items-center cursor-pointer w-full mb-8" onClick={() => setActive(8) || logoutHandler()}> */}
+    <div className="flex items-center cursor-pointer w-full mb-8" onClick={() => setActive(8)}>
         <AiOutlineLogout size={20} color={active === 8 ? "red" : ""} />
-        <span  className={`pl-3 ${active === 8 ? "text-[red]" : ""}800px:block hidden`}>Logout</span>
+        <span  className={`pl-3 ${active === 8 ? "text-[red]" : ""} 800px:block hidden`}>Logout</span>
     </div>
-
     </div>
   )
 }

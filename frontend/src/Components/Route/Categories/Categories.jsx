@@ -12,7 +12,7 @@ const Categories = () => {
         className={`${styles.section} hidden sm:block text-xl font-medium text-rose-700 mt-[-15px]`}
       >
         <div className={`${styles.section}`} id="categories">
-          <div className="grid grid-cols-3 gap-[5px] md:grid-cols-3 md-gap-[10px] lg:grid-cols-6 lg:gap-[20px] xl:grid-cols-6 xl:gap-[30px]">
+          <div className=" grid grid-cols-3 gap-[5px] md:grid-cols-3 md-gap-[10px] lg:grid-cols-6 lg:gap-[20px] xl:grid-cols-6 xl:gap-[30px]">
             {categoriesData &&
               categoriesData.map((i) => {
                 const handleSubmit = (i) => {
