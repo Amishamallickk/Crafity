@@ -1,9 +1,9 @@
 import React from "react";
-import Footer from "../Components/Layout/Footer";
-import Heading from "../Components/Layout/Heading";
-import Header from "../Components/Layout/Headers";
 import Lottie from "react-lottie";
-import animationData from "../Assests/animations/107043-success.json";
+import animationData from "../Assests/animations/Animation - 1712750188429.json";
+import Footer from "../Components/Layout/Footer";
+import Header from "../Components/Layout/Headers";
+import Heading from "../Components/Layout/Heading";
 
 const OrderSuccessPage = () => {
   return (

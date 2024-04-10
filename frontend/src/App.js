@@ -7,23 +7,25 @@ import "./App.css";
 // import ProtectedRoute from "./Routes/ProtectedRoute.js";
 // import SellerProtectedRoutes from "./Routes/SellerProtectedRoutes"
 import {
-  AboutUsPage, ActivationPage, BuyerPolicyPage, ContactUsPage, FAQPage, HomePage, LoginPage, OrderSuccessPage, PrivacyPolicyPage,
-  ProductDetailsPage, CheckoutPage ,
+  AboutUsPage, ActivationPage, BuyerPolicyPage,
+  CheckoutPage,
+  ContactUsPage, FAQPage, HomePage, LoginPage, OrderSuccessPage, PrivacyPolicyPage,
+  ProductDetailsPage,
   ProductsPage, ProfilePage,
   SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage
 } from "./Routes/Routes.js";
-import { ShopDashboardPage, ShopHomePage } from "./Routes/ShopRoutes.js";
-// import { loadUser } from "./redux/actions/user";
-// import { useSelector } from "react-redux";
+import { ShopDashboardPage, ShopHomePage, ShopCreateProduct } from "./Routes/ShopRoutes.js";
+// import { loadSeller, loadUser } from "./redux/actions/user";
 // import Store from './redux/store.js';
 
 
 const App = () => {
-  // const {loading, isAutenticated } = useSelector((state) => state.user);
+
 
   // useEffect(() => {
   //   Store.dispatch(loadUser());
-  // })
+  //   Store.dispatch(loadSeller());
+  // },[])
 
   return (
     <BrowserRouter>
@@ -61,6 +63,7 @@ const App = () => {
         <Route path="/shop-login" element={<ShopLoginPage />} />
         <Route path="/shop/:id" element={<ShopHomePage />} />
         <Route path="/dashboard" element={<ShopDashboardPage />} />
+        <Route path="/dashboard-create-product" element={<ShopCreateProduct />} />
         {/* <Route path="/shop/:id" element={<SellerProtectedRoutes><ShopHomePage /></SellerProtectedRoutes>} />
         <Route path="/dashboard" element={<SellerProtectedRoutes><ShopDashboardPage /></SellerProtectedRoutes>} /> */}
 
