@@ -112,14 +112,17 @@ const DashboardSideBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4 mt-[-6px]">
-        <Link to="/dashboard-coupouns" className="w-full flex items-center">
+        <Link
+          to="/dashboard-coupons"
+          className="w-full flex items-center"
+        >
           <AiOutlineGift
             size={25}
-            color={`${active === 7 ? "crimson" : "#555"}`}
+            color={`${active === 9 ? "crimson" : "#555"}`}
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 7 ? "text-[crimson]" : "text-[#555]"
+              active === 9 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
             Discount Codes
@@ -147,11 +150,11 @@ const DashboardSideBar = ({ active }) => {
         <Link to="/settings" className="w-full flex items-center">
           <CiSettings
             size={25}
-            color={`${active === 9 ? "crimson" : "#555"}`}
+            color={`${active === 11 ? "crimson" : "#555"}`}
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 9 ? "text-[crimson]" : "text-[#555]"
+              active === 11 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
             Settings

@@ -3,15 +3,16 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from '../../Styles/styles';
 import { backend_url } from '../../server';
+// import { Axios } from 'axios';
 
 const ShopInfo = ({isOwner}) => {
     const { seller } = useSelector((state) =>  state.seller);
 
     const logoutHandler = async () => {
-        // axios.get(`${server}/shop/logout`,{
-        //   withCredentials: true,
-        // });
-        // window.location.reload();
+      //   Axios.get(`${server}/shop/logout`,{
+      //     withCredentials: true,
+      //   });
+      //   window.location.reload();
       };
 
   return (

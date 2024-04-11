@@ -14,7 +14,7 @@ import {
   ProductsPage, ProfilePage,
   SellerPolicyPage, ShopCreatePage, ShopLoginPage, SignUpPage, TermsandConditionPage
 } from "./Routes/Routes.js";
-import { ShopDashboardPage, ShopHomePage, ShopCreateProduct } from "./Routes/ShopRoutes.js";
+import { ShopAllCoupons, ShopAllProducts, ShopCreateProduct, ShopDashboardPage, ShopHomePage  } from "./Routes/ShopRoutes.js";
 // import { loadSeller, loadUser } from "./redux/actions/user";
 // import Store from './redux/store.js';
 
@@ -64,6 +64,9 @@ const App = () => {
         <Route path="/shop/:id" element={<ShopHomePage />} />
         <Route path="/dashboard" element={<ShopDashboardPage />} />
         <Route path="/dashboard-create-product" element={<ShopCreateProduct />} />
+        <Route path="/dashboard-products" element={<ShopAllProducts />} />
+        <Route path="/dashboard-coupons" element={<ShopAllCoupons />} />
+
         {/* <Route path="/shop/:id" element={<SellerProtectedRoutes><ShopHomePage /></SellerProtectedRoutes>} />
         <Route path="/dashboard" element={<SellerProtectedRoutes><ShopDashboardPage /></SellerProtectedRoutes>} /> */}
 
