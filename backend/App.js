@@ -21,19 +21,21 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 // import routes
 const user = require("./controller/user");
+const productCntrlr = require("./controller/product.controller");
 
 App.use("/api/v2/user", user);
 App.use("/api/v2/seller", user);
+App.use("/api/v2/products", productCntrlr);
 
 //Its for Error Handling
 App.use(ErrorHandler);
 // Middleware to set CORS headers
 App.use((req, res, next) => {
-    // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-    // res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    // res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    // res.header('Access-Control-Allow-Credentials', 'true'); // Set to true for credentials to be allowed
-    // res.header('ngrok-skip-browser-warning', 'true');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Credentials', 'true'); // Set to true for credentials to be allowed
+    res.header('ngrok-skip-browser-warning', 'true');
 
     next();
 });

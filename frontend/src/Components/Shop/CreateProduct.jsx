@@ -1,33 +1,63 @@
+import axios from "axios";
 import React, { useState } from 'react';
-import { AiOutlinePlusCircle } from 'react-icons/ai';
+// import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { categoriesData } from '../../Static/data';
+import { server } from "../../server";
 
 const CreateProduct = () => {
     const { seller } = useSelector((state) => state.seller);
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
-    const [images, setImages] = useState([]);
+    // const [images, setImages] = useState([]);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
-    const [tags, setTags] = useState("");
-    const [originalPrice, setOriginalPrice] = useState();
-    const [discountPrice, setDiscountPrice] = useState();
+    // const [tags, setTags] = useState("");
+    const [price, setPrice] = useState();
+    const [discount_price, setDiscount_Price] = useState();
     const [stock, setStock] = useState();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
 
-    const handleImageChange = (e) => {
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      console.log(sessionStorage.getItem("loggedData"));
+      let loggedUserInfo = JSON.parse(sessionStorage.getItem("loggedData"));
 
-        let files = Array.from(e.target.files);
-        setImages((prevImages) => [...prevImages, ...files])
-    }
+      await axios
+        .post(
+          `${server}/products/create`,
+          {
+            name,
+            description,
+            category,
+            price,
+            discount_price,
+            stock,
+            shop:loggedUserInfo.user._id
+            // image_Url,
+          },
+          // { withCredentials:true}
+        )
+        .then((res) => {
+          toast.success("Product Created Successfully!");
+          navigate("/dashboard-products");
+          // window.location.reload(true);
+        })
+        .catch((err) => {
+          toast.error(err.response.data.message);
+        });
+    };
+  
+    // const handleImageChange = (e) => {
+    //     e.preventDefault();
+
+    //     let files = Array.from(e.target.files);
+    //     setImages((prevImages) => [...prevImages, ...files])
+    // }
     return (
     <div className="w-[90%] 800px:w-[70%] bg-rose-100  shadow h-[80vh] rounded-[4px] p-3 overflow-y-scroll">
       <h5 className="text-[30px] font-Poppins text-center text-rose-500">Create Product</h5>
@@ -89,7 +119,7 @@ const CreateProduct = () => {
           </select>
         </div>
         <br />
-
+{/* 
         <div>
           <label className="pb-2">Tags</label>
           <input
@@ -101,16 +131,16 @@ const CreateProduct = () => {
             placeholder="Enter your product tags..."
           />
         </div>
-        <br />
+        <br /> */}
 
         <div>
           <label className="pb-2">Original Price</label>
           <input
             type="number"
             name="price"
-            value={originalPrice}
+            value={price}
             className="mt-2 appearance-none block w-full px-3 h-[35px] border border-rose-200 bg-rose-50 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-rose-500 focus:border-rose-500 sm:text-sm"
-            onChange={(e) => setOriginalPrice(e.target.value)}
+            onChange={(e) => setPrice(e.target.value)}
             placeholder="Enter your product price..."
           />
         </div>
@@ -123,9 +153,9 @@ const CreateProduct = () => {
           <input
             type="number"
             name="price"
-            value={discountPrice}
+            value={discount_price}
             className="mt-2 appearance-none block w-full px-3 h-[35px] border border-rose-200 bg-rose-50 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-rose-500 focus:border-rose-500 sm:text-sm"
-            onChange={(e) => setDiscountPrice(e.target.value)}
+            onChange={(e) => setDiscount_Price(e.target.value)}
             placeholder="Enter your product price with discount..."
           />
         </div>
@@ -156,9 +186,9 @@ const CreateProduct = () => {
             id="upload"
             className="hidden"
             multiple
-            onChange={handleImageChange}
+            // onChange={handleImageChange}
           />
-          <div className="w-full flex items-center flex-wrap">
+          {/* <div className="w-full flex items-center flex-wrap">
             <label htmlFor="upload">
               <AiOutlinePlusCircle size={30} className="mt-3 " color="#FF007F" />
             </label>
@@ -171,8 +201,9 @@ const CreateProduct = () => {
                   className="h-[120px] w-[120px] object-cover m-2"
                 />
               ))}
-          </div>
+          </div> */}
           <br />
+
           <div>
             <input
               type="submit"

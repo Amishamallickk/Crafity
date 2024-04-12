@@ -62,12 +62,21 @@ router.post(
   catchAsyncErrors(async (req, res, next) => {
     try {
       console.log(`User Login`, req.body);
+      let logUrl= req.baseUrl.split("/")[3];
+  console.log(req.baseUrl, logUrl[3]) // '/admin'
       const { email, password } = req.body;
+      let whereObj={};
 
+      whereObj['email']=email;
+      if(logUrl=='seller'){
+        whereObj['user_type']= 'seller';
+      }else{
+        whereObj['user_type']= 'customer';
+      }
       if (!email || !password) {
         return next(new ErrorHandler("Please provide the all fields!", 400));
       }
-
+      // if()
       const user = await User.findOne({ email }).select("+password");
 
       if (!user) {
@@ -162,48 +171,7 @@ async function createUser(req, res, next) {
   }
 }
 
-// // load user
-// router.get(
-//   "/getuser",
-//   isAuthenticated,
-//   catchAsyncErrors(async (req, res, next) => {
-//     try {
-//       const user = await User.findById(req.user.id);
 
-//       if (!user) {
-//         return next(new ErrorHandler("User doesn't exists", 400));
-//       }
-
-//       res.status(200).json({
-//         success: true,
-//         user,
-//       });
-//     } catch (error) {
-//       return next(new ErrorHandler(error.message, 500));
-//     }
-//   })
-// );
-
-// // log out user
-// router.get(
-//   "/logout",
-//   catchAsyncErrors(async (req, res, next) => {
-//     try {
-//       res.cookie("token", null, {
-//         expires: new Date(Date.now()),
-//         httpOnly: true,
-//         sameSite: "none",
-//         secure: true,
-//       });
-//       res.status(201).json({
-//         success: true,
-//         message: "Log out successful!",
-//       });
-//     } catch (error) {
-//       return next(new ErrorHandler(error.message, 500));
-//     }
-//   })
-// );
 
 
 module.exports = router;

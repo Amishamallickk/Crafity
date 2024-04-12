@@ -5,7 +5,10 @@ import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 // import { getAllProductsShop } from "../../redux/actions/product";
+import axios from "axios";
+import { toast } from "react-toastify";
 import { deleteProduct } from "../../redux/actions/product";
+import { server } from "../../server";
 import Loader from "../Layout/Loader";
 
 const AllProducts = () => {
@@ -16,6 +19,28 @@ const AllProducts = () => {
 
   useEffect(() => {
     // dispatch(getAllProductsShop(seller._id));
+    console.log(sessionStorage.getItem("loggedData"));
+      let loggedUserInfo = JSON.parse(sessionStorage.getItem("loggedData"));
+
+    axios
+        .post(
+          `${server}/products/list`,
+          {
+            shop:loggedUserInfo.user._id
+            // image_Url,
+          },
+          // { withCredentials:true}
+        )
+        .then((res) => {
+          this.isLoading = true
+          // toast.success("Product Loaded Successfully!");
+          console.log(res);
+          // navigate("/dashboard");
+          // window.location.reload(true);
+        })
+        .catch((err) => {
+          // toast.error(err.response.data.message);
+        });
   });
 
   const handleDelete = (id) => {

@@ -26,11 +26,15 @@ const ShopLogin = () => {
       )
       .then((res) => {
         toast.success("Login Success!");
+      
+        console.log(`loggedData `, JSON.stringify(res.data));
+        window.sessionStorage.setItem("loggedData", JSON.stringify(res.data));
+        // window.sessionStorage.getItem("loggedData", JSON.parse(res.data));
         navigate("/dashboard");
         // window.location.reload(true);
       })
       .catch((err) => {
-        toast.error(err.response.data.message);
+        // toast.error(err.response.data.message);
       });
   };
 
